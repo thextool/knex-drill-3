@@ -4,14 +4,14 @@ const morgan = require('morgan')
 const app = express()
 const cors = require('cors')
 
-const coffees = require('./routes/games')
+const games = require('./routes/games')
 
 app.use(morgan('dev'))
 app.use(bodyParser.json())
 app.use(cors())
-app.use('/games', coffees)
+app.use('/games', games)
 
-app.get('/', (req, res, next) => {
+app.get('/', (req, res) => {
     res.json({
         message: 'we are up and running'
     })
